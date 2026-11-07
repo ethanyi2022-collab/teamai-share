@@ -37,3 +37,15 @@ servers:
     transport: stdio
     command: uvx
     args: ["mcp-server-git"]
+
+  - name: chrome-devtools
+    description: Chrome DevTools 能力：性能面板、网络请求、控制台日志与页面调试（Chrome 官方）
+    transport: stdio
+    command: npx
+    args: ["-y", "chrome-devtools-mcp@latest"]
+
+  - name: codebase-memory
+    description: 本地代码智能：把代码、文档与基础设施连成持久可查的知识图谱
+    transport: stdio
+    command: npx
+    args: ["-y", "codebase-memory-mcp@latest"]
