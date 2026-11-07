@@ -1,0 +1,39 @@
+# 团队共享 MCP 服务器
+# 只放"所有人装了就能用"的：不固定本机路径、不写个人 token。
+# 需要个人凭据的（github、notion、sentry 等）请各自在本地添加，不要写进这里。
+
+servers:
+  - name: context7
+    description: 检索任意开源库/框架的最新官方文档与代码示例（Upstash Context7）
+    transport: http
+    url: https://mcp.context7.com/mcp
+
+  - name: playwright
+    description: 浏览器自动化：打开页面、点击、填表、截图、抓取 DOM（Microsoft Playwright）
+    transport: stdio
+    command: npx
+    args: ["-y", "@playwright/mcp@latest"]
+
+  - name: fetch
+    description: 抓取网页并转成适合 LLM 阅读的 Markdown
+    transport: stdio
+    command: uvx
+    args: ["mcp-server-fetch"]
+
+  - name: memory
+    description: 基于知识图谱的持久记忆，跨会话保存事实与关系
+    transport: stdio
+    command: npx
+    args: ["-y", "@modelcontextprotocol/server-memory"]
+
+  - name: sequential-thinking
+    description: 结构化推理草稿纸：把复杂问题拆成可回溯的思考步骤
+    transport: stdio
+    command: npx
+    args: ["-y", "@modelcontextprotocol/server-sequential-thinking"]
+
+  - name: git
+    description: 只读 git 操作：查看历史、diff、分支与提交信息
+    transport: stdio
+    command: uvx
+    args: ["mcp-server-git"]
